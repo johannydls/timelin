@@ -17,9 +17,8 @@
     "node-pre-gyp": "^0.12.0",
     "nodemon": "^1.18.10",
     "pg": "^7.8.2",
-    "sequelize": "^5.1.0"
-  },
-  "devDependencies": {
+    "sequelize": "^5.1.0",
     "sequelize-cli": "^5.4.0"
-  }
+  },
+  "devDependencies": {}
 }
