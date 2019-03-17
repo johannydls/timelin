@@ -7,7 +7,7 @@
   "author": "Johanny LS <johanny.dls@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "sequelize db:migrate && nodemon index.js"
   },
   "dependencies": {
     "bcrypt": "^3.0.4",
@@ -15,11 +15,11 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "node-pre-gyp": "^0.12.0",
+    "nodemon": "^1.18.10",
     "pg": "^7.8.2",
     "sequelize": "^5.1.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.10",
     "sequelize-cli": "^5.4.0"
   }
 }
