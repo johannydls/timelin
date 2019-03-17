@@ -7,7 +7,7 @@
   "author": "Johanny LS <johanny.dls@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "sequelize db:migrate && nodemon index.js"
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "bcrypt": "^3.0.4",
