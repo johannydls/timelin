@@ -10,7 +10,7 @@ routes.get('/users', UserController.list);
 routes.post('/users', UserController.create);
 routes.get('/users/:id', UserController.listById);
 routes.get('/users/email/:email', UserController.listByEmail);
-routes.post('/login', UserController.login);
+routes.post('/login', UserController.authenticate);
 
 //Rotas Eventos
 routes.get('/events', EventController.list);

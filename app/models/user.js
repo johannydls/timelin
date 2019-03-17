@@ -1,5 +1,4 @@
 const bcrypt = require('bcrypt');
-const validator = require('validator');
 
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
@@ -8,10 +7,16 @@ module.exports = (sequelize, DataTypes) => {
         password: DataTypes.STRING
     });
 
+    /*User.beforeCreate((user, next) => {
+        user.password = bcrypt.hashSync(user.password, process.env.BCRYPT_SALT_ROUNDS || 10);
+        next();
+    })*/
+
     User.beforeCreate((user) => {
-        return bcrypt.hash(user.password, process.env.BCRYPT_SALT_ROUNDS || 10)
+        
+        return bcrypt.hashSync(this.password, process.env.BCRYPT_SALT_ROUNDS || 10)
             .then((hash) => {
-                user.password = hash;
+                this.password = hash;
             });
     });
 
