@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
         title: DataTypes.STRING,
         description: DataTypes.STRING,
         color: DataTypes.STRING,
-        idUser: DataTypes.INTEGER
+        idUser: DataTypes.INTEGER,
+        date: DataTypes.DATE
     });
 
     return Event;

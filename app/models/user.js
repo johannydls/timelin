@@ -7,18 +7,17 @@ module.exports = (sequelize, DataTypes) => {
         password: DataTypes.STRING
     });
 
-    /*User.beforeCreate((user, next) => {
-        user.password = bcrypt.hashSync(user.password, process.env.BCRYPT_SALT_ROUNDS || 10);
-        next();
-    })*/
-
     User.beforeCreate((user) => {
-        
-        return bcrypt.hashSync(this.password, process.env.BCRYPT_SALT_ROUNDS || 10)
-            .then((hash) => {
-                this.password = hash;
-            });
+        user.password = bcrypt.hashSync(user.password, process.env.BCRYPT_SALT_ROUNDS || 10);
     });
+
+    /*User.beforeCreate((user) => {
+        
+        return bcrypt.hashSync(user.password, process.env.BCRYPT_SALT_ROUNDS || 10)
+            .then((hash) => {
+                user.password = hash;
+            });
+    });*/
 
     User.beforeBulkUpdate((user) => {
         if (user.attributes.password) {

@@ -5,8 +5,6 @@ const jwt = require('jsonwebtoken');
 
 module.exports = {
 
-    //User.create({ name: 'Johanny', email: 'johanny@mail.com', password: '123456'});
-
     create(req, res) {
         return User 
             .create(req.body)
@@ -66,6 +64,7 @@ module.exports = {
                 if (userInfo) {
                     if (bcrypt.compareSync(password, userInfo[0].dataValues.password)) {
                         const token = jwt.sign({ id: userInfo.id}, req.app.get('secretKey'), { expiresIn: '1h'});
+                        delete userInfo[0].dataValues.password;
                         res.status(200).send({status: "success", message: "user found!", data: { user: userInfo, token: token}});
                     } else {
                         res.status(400).send({status: "error", message: "Invalid email/password", data: null});

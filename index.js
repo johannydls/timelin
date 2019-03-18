@@ -12,6 +12,11 @@ app.set('secretKey', 'TiM3L1n');
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+const { User } = require('./app/models/');
+
+User.create({ name: 'Johanny', email: 'johanny@mail.com', password: '123456'});
+
+
 app.get('/', (req, res) => {
     res.send({message:"Welcome to the Timelin API"});
 });
