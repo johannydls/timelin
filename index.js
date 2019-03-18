@@ -34,7 +34,8 @@ app.use(express.json());
 app.use(require('./app/routes.js'));
 
 const port = process.env.PORT || 3005
+const host = process.env.HOST || "http://localhost";
 
 app.listen(port, () => {
-    console.log(`Listening on http://localhost:${port}`);
+    console.log(`Listening on ${host}:${port}`);
 });
