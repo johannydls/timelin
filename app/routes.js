@@ -16,5 +16,6 @@ routes.post('/login', UserController.authenticate);
 routes.get('/events', EventController.list);
 routes.post('/events', EventController.create);
 routes.get('/events/:idUser', EventController.listByUserId);
+routes.delete('/events/:id', EventController.delete);
 
 module.exports = routes;

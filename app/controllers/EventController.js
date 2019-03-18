@@ -30,4 +30,13 @@ module.exports = {
             .catch((error) => res.status(400).send(error));
     },
 
+    async delete(req, res) {
+        return Event
+            .destroy({
+                where: { id: req.params.id }
+            })
+            .then((rowDeleted) => res.status(200).send({"message":rowDeleted+" linha deletada."}))
+            .catch((error) => res.status(400).send(error));
+    }
+
 }
