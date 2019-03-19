@@ -77,4 +77,8 @@ module.exports = {
             .catch((error) => next(error));
     },
 
+    update(req, res) {
+        
+    }
+
 }
